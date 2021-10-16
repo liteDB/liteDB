@@ -6,10 +6,6 @@ on:
       - "*"
   workflow_dispatch:
 
-env:
-  SQLITE_RELEASE_YEAR: "2021"
-  SQLITE_VERSION: "3360000"
-
 jobs:
   publish:
     name: Publish for ${{ matrix.os }}
@@ -17,19 +13,17 @@ jobs:
     strategy:
       matrix:
         include:
-          - os: ubuntu-latest
-          - os: windows-latest
           - os: macos-latest
+          - os: ubuntu-latest
           - os: windows-2019
+          - os: windows-latest
 
     steps:
       - uses: actions/checkout@v2
 
-      - name: Download SQLite sources
+      - name: Prepare dist
         shell: bash
-        run: |
-          make prepare-dist
-          make download-sqlite
+        run: make prepare-dist
 
       - name: Build for Linux
         if: matrix.os == 'ubuntu-latest'
@@ -40,13 +34,14 @@ jobs:
         shell: bash
         run: make compile-windows
 
-      - name: Build for Windows
+      - name: Build for Windows 2019
         if: matrix.os == 'windows-2019'
         shell: bash
         run: make compile-windows-32
 
       - name: Build for macOS
         if: matrix.os == 'macos-latest'
+        shell: bash
         run: make compile-macos
 
       - name: Upload binaries to release

@@ -7,10 +7,6 @@ on:
     branches: [main]
   workflow_dispatch:
 
-env:
-  SQLITE_RELEASE_YEAR: "2021"
-  SQLITE_VERSION: "3360000"
-
 jobs:
   build:
     name: Build for ${{ matrix.os }}
@@ -18,30 +14,21 @@ jobs:
     strategy:
       matrix:
         include:
-          - os: ubuntu-latest
-          - os: windows-latest
           - os: macos-latest
+          - os: ubuntu-latest
           - os: windows-2019
+          - os: windows-latest
 
     steps:
       - uses: actions/checkout@v2
 
-      - name: Download SQLite sources
+      - name: Prepare dist
         shell: bash
-        run: |
-          make prepare-dist
-          make download-sqlite
+        run: make prepare-dist
 
       - name: Build for Linux
         if: matrix.os == 'ubuntu-latest'
-        run: |
-          sudo curl -L https://github.com/mindreframer/sqlite/releases/download/0.7.1-3360/sqlite3-ubuntu --output /usr/local/bin/sqlite3
-          sudo chmod +x /usr/local/bin/sqlite3
-          sudo apt install nodejs yarn
-          sudo npm install --global yarn
-          make compile-linux
-          pushd testrunner && yarn install && popd
-          bin/test.sh CI
+        run: make compile-linux
 
       - name: Build for Windows
         if: matrix.os == 'windows-latest'
@@ -55,4 +42,15 @@ jobs:
 
       - name: Build for macOS
         if: matrix.os == 'macos-latest'
+        shell: bash
         run: make compile-macos
+
+      - name: Run tests (on Linux)
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          sudo curl -L https://github.com/mindreframer/sqlite/releases/download/0.7.1-3360/sqlite3-ubuntu --output /usr/local/bin/sqlite3
+          sudo chmod +x /usr/local/bin/sqlite3
+          sudo apt install nodejs yarn
+          sudo npm install --global yarn
+          pushd testrunner && yarn install && popd
+          bin/test.sh CI
