@@ -7,7 +7,7 @@ curl -L https://github.com/sqlite/sqlite/raw/master/ext/misc/series.c --output s
 curl -L https://github.com/sqlite/sqlite/raw/master/ext/misc/spellfix.c --output src/sqlite3-spellfix.c
 curl -L https://github.com/sqlite/sqlite/raw/master/ext/misc/memstat.c --output src/sqlite3-memstat.c
 
-### community maintained extensions
+### community-maintained extensions
 
 curl -L https://github.com/shawnw/useful_sqlite_extensions/raw/master/src/math_funcs.c --output src/sqlite3-shawnw_math.c
 patch -p0 < diffs/sqlite3-shawnw_math.diff
@@ -16,8 +16,5 @@ curl -L https://github.com/shawnw/useful_sqlite_extensions/raw/master/src/bloom_
 patch -p0 < diffs/sqlite3-bloom_filter.diff
 
 curl -L https://github.com/abetlen/sqlite3-bfsvtab-ext/raw/main/bfsvtab.c --output src/sqlite3-bfsvtab.c
-
-
-curl -L https://raw.githubusercontent.com/jakethaw/pivot_vtab/main/pivot_vtab.c --output src/sqlite3-pivot_vtab.c
-
-curl -L https://raw.githubusercontent.com/daschr/sqlite3_extensions/master/cron.c --output src/sqlite3-cron.c
+curl -L https://github.com/jakethaw/pivot_vtab/raw/main/pivot_vtab.c --output src/sqlite3-pivot_vtab.c
+curl -L https://github.com/daschr/sqlite3_extensions/raw/master/cron.c --output src/sqlite3-cron.c

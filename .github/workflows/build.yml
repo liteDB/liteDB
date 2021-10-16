@@ -2,9 +2,9 @@ name: build
 
 on:
   push:
-    branches: [forked]
+    branches: [main]
   pull_request:
-    branches: [forked]
+    branches: [main]
   workflow_dispatch:
 
 env:
