@@ -27,7 +27,7 @@ There are [precompiled binaries](https://github.com/litedb/litedb/releases/lates
 - `*.so` - for Linux (64-bit)
 - `*.dylib` - for macOS (Intel based)
 
-Binaries are 64-bit and require a 64-bit SQLite version. If you are using SQLite shell on Windows (`sqlite.exe`), its 64-bit version is available at https://github.com/nalgeon/sqlite.
+Binaries are 64-bit and require a 64-bit SQLite version. If you are using SQLite shell on Windows (`sqlite.exe`), its 64-bit version is available at https://github.com/litedb/sqlite-builder/releases/latest. (`sqlite3-32.exe` or `sqlite3-64.exe`)
 
 ## Usage
 

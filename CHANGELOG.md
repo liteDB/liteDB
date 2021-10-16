@@ -1,6 +1,7 @@
 ### 0.9.0-3360
 
-- Files: https://github.com/mindreframer/sqlean/releases/tag/0.9.0-3360
+- Move / rename Git repo to `github.com/litedb/litedb`
+- Files: https://github.com/litedb/litedb/releases/tag/0.9.0-3360
 - EXT:
   - cron (https://github.com/daschr/sqlite3_extensions/)
   - pivot_vtab (https://github.com/jakethaw/pivot_vtab/)
