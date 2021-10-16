@@ -30,6 +30,21 @@ const activeExtsWindows = activeExts.filter((elem) => elem[1] != "ipaddr");
 
 class Generator extends GenBase {
   run() {
+    this.genMakefile();
+    this.genExtList();
+  }
+
+  genExtList() {
+    let list = activeExts.map((x) => {
+      return x[1];
+    });
+    fs.writeFileSync(
+      "extensions.json",
+      JSON.stringify({ extensions: list }, null, 2)
+    );
+  }
+
+  genMakefile() {
     const makeheader = fs.readFileSync("./genMake/makeheader.txt", "utf-8");
     this.push("");
     this.genLinux();
