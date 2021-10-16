@@ -1,9 +1,14 @@
-name: publish
+name: Build / Test / Publish
 
 on:
   push:
     tags:
       - "*"
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
@@ -46,7 +51,18 @@ jobs:
         shell: bash
         run: make compile-macos
 
-      - name: Upload binaries to release
+      - name: Run tests (just on Linux)
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          sudo curl -L https://github.com/mindreframer/sqlite/releases/download/0.7.1-3360/sqlite3-ubuntu --output /usr/local/bin/sqlite3
+          sudo chmod +x /usr/local/bin/sqlite3
+          sudo apt install nodejs yarn
+          sudo npm install --global yarn
+          pushd testrunner && yarn install && popd
+          bin/test.sh CI
+
+      - name: Upload binaries to release (on tags)
+        if: startsWith(github.ref, 'refs/tags/')
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
