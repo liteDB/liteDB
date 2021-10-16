@@ -23,7 +23,9 @@ jobs:
 
       - name: Prepare dist
         shell: bash
-        run: make prepare-dist
+        run: |
+          make download-sqlite
+          make prepare-dist
 
       - name: Build for Linux
         if: matrix.os == 'ubuntu-latest'
