@@ -10,16 +10,15 @@ insert into locations(name, lat, lng) values
 
 SELECT
     name,
-    DISTANCE(lat, lng, 33.8120742,-117.9188774) as dist
+    printf('%.6f',DISTANCE(lat, lng, 33.8120742,-117.9188774)) as dist
 FROM locations
 ORDER BY dist
 LIMIT 0, 10;
 
 
-
 SELECT
     name,
-    DISTANCE(lat, lng, 48.8534100, 2.3488000) as dist
+    printf('%.6f', DISTANCE(lat, lng, 48.8534100, 2.3488000)) as dist
 FROM locations
 ORDER BY dist
 LIMIT 0, 10;
