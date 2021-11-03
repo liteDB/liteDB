@@ -6,6 +6,7 @@ const activeExts = [
   ["src/sqlite3-bloom_filter.c", "bloom_filter"],
   ["src/sqlite3-cron.c", "cron"],
   ["src/sqlite3-crypto.c src/crypto/*.c", "crypto"],
+  ["src/sqlite3-distance.c", "distance"],
   ["src/sqlite3-ipaddr.c", "ipaddr"],
   ["src/sqlite3-json1.c", "json1"],
   ["src/sqlite3-math.c", "math"],

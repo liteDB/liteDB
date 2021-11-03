@@ -22,6 +22,7 @@ compile-linux:
 	gcc -fPIC -shared src/sqlite3-bloom_filter.c -o dist/bloom_filter.so -lm
 	gcc -fPIC -shared src/sqlite3-cron.c -o dist/cron.so -lm
 	gcc -fPIC -shared src/sqlite3-crypto.c src/crypto/*.c -o dist/crypto.so -lm
+	gcc -fPIC -shared src/sqlite3-distance.c -o dist/distance.so -lm
 	gcc -fPIC -shared src/sqlite3-ipaddr.c -o dist/ipaddr.so -lm
 	gcc -fPIC -shared src/sqlite3-json1.c -o dist/json1.so -lm
 	gcc -fPIC -shared src/sqlite3-math.c -o dist/math.so -lm
@@ -41,6 +42,7 @@ compile-macos:
 	gcc -fPIC -dynamiclib -I src src/sqlite3-bloom_filter.c -o dist/bloom_filter.dylib -lm
 	gcc -fPIC -dynamiclib -I src src/sqlite3-cron.c -o dist/cron.dylib -lm
 	gcc -fPIC -dynamiclib -I src src/sqlite3-crypto.c src/crypto/*.c -o dist/crypto.dylib -lm
+	gcc -fPIC -dynamiclib -I src src/sqlite3-distance.c -o dist/distance.dylib -lm
 	gcc -fPIC -dynamiclib -I src src/sqlite3-ipaddr.c -o dist/ipaddr.dylib -lm
 	gcc -fPIC -dynamiclib -I src src/sqlite3-json1.c -o dist/json1.dylib -lm
 	gcc -fPIC -dynamiclib -I src src/sqlite3-math.c -o dist/math.dylib -lm
@@ -60,6 +62,7 @@ compile-windows:
 	gcc -shared -I. src/sqlite3-bloom_filter.c -o dist/bloom_filter.dll -lm
 	gcc -shared -I. src/sqlite3-cron.c -o dist/cron.dll -lm
 	gcc -shared -I. src/sqlite3-crypto.c src/crypto/*.c -o dist/crypto.dll -lm
+	gcc -shared -I. src/sqlite3-distance.c -o dist/distance.dll -lm
 	gcc -shared -I. src/sqlite3-json1.c -o dist/json1.dll -lm
 	gcc -shared -I. src/sqlite3-math.c -o dist/math.dll -lm
 	gcc -shared -I. src/sqlite3-memstat.c -o dist/memstat.dll -lm
@@ -78,6 +81,7 @@ compile-windows-32:
 	gcc -shared -I. src/sqlite3-bloom_filter.c -o dist/bloom_filter-win32.dll -lm
 	gcc -shared -I. src/sqlite3-cron.c -o dist/cron-win32.dll -lm
 	gcc -shared -I. src/sqlite3-crypto.c src/crypto/*.c -o dist/crypto-win32.dll -lm
+	gcc -shared -I. src/sqlite3-distance.c -o dist/distance-win32.dll -lm
 	gcc -shared -I. src/sqlite3-json1.c -o dist/json1-win32.dll -lm
 	gcc -shared -I. src/sqlite3-math.c -o dist/math-win32.dll -lm
 	gcc -shared -I. src/sqlite3-memstat.c -o dist/memstat-win32.dll -lm
