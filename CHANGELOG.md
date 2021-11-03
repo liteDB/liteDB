@@ -1,3 +1,8 @@
+### 0.9.2-3360
+
+- EXT:
+  - distance (https://github.com/cwarden/sqlite-distance)
+
 ### 0.9.0-3360
 
 - Move / rename Git repo to `github.com/litedb/litedb`
