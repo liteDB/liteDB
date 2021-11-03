@@ -18,3 +18,7 @@ patch -p0 < diffs/sqlite3-bloom_filter.diff
 curl -L https://github.com/abetlen/sqlite3-bfsvtab-ext/raw/main/bfsvtab.c --output src/sqlite3-bfsvtab.c
 curl -L https://github.com/jakethaw/pivot_vtab/raw/main/pivot_vtab.c --output src/sqlite3-pivot_vtab.c
 curl -L https://github.com/daschr/sqlite3_extensions/raw/master/cron.c --output src/sqlite3-cron.c
+
+
+## distance between 2 points (lat / lng)
+curl -L https://github.com/cwarden/sqlite-distance/raw/master/distance.c --output src/sqlite3-distance.c
