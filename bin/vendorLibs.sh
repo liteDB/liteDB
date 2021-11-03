@@ -22,3 +22,4 @@ curl -L https://github.com/daschr/sqlite3_extensions/raw/master/cron.c --output 
 
 ## distance between 2 points (lat / lng)
 curl -L https://github.com/cwarden/sqlite-distance/raw/master/distance.c --output src/sqlite3-distance.c
+patch -p0 < diffs/sqlite3-distance.diff

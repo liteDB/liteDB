@@ -1,4 +1,4 @@
-#include <sqlite3ext.h>
+#include "sqlite3ext.h"
 #include <math.h>
 #include <assert.h>
 SQLITE_EXTENSION_INIT1
