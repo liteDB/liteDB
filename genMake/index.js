@@ -20,6 +20,7 @@ const activeExts = [
   ["src/sqlite3-text.c", "text"],
   ["src/sqlite3-unicode.c", "unicode"],
   ["src/sqlite3-vsv.c", "vsv"],
+  ["src/sqlite3-stored-procedures.c", "vsv"],
 ];
 
 const activeExtsWindows = activeExts.filter((elem) => elem[1] != "ipaddr");
